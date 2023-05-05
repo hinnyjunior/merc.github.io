@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,800&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: 'Bodoni Moda', serif;
+        }
+        body{
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../static/bday.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .container{
+            perspective: 1000px;
+        }
+        #name{
+            border-radius: 50px;
+        }
+        .form{
+            margin: 250px;
+           
+            
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories = true)%}
+    {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+            <div class="alert alert-danger alter-dismissable fade show">{{ message }}
+                <button type="button" class="close" data-bs-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% else %}
+            <div class="alert alert-success alter-dismissable fade show">{{ message }}
+                <button type="button" class="close" data-bs-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>{% endif %}
+            {% endfor%}
+            {% endif %}
+            {% endwith %}<center>
+    <form action="/" method="post" class="form">
+        <h1>Enter Your Name</h1><br>
+        
+         
+    
+        <div class="form-group">
+            <input type="text" name="name" id="name"/>
+        </div><br>
+        <input type="submit" class="btn btn-outline-dark">
+    </form></center>
+</body>
+</html>
